@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Exercici006 · Interacció CSS</title>
+  <link rel="stylesheet" href="estils.css">
+</head>
+<body id="pagina-interaccio">
+  <header class="navbar sticky">
+    <nav class="container-flex">
+      <a class="brand" href="#">Exercici006</a>
+
+      <!-- Toggle móvil: checkbox oculto -->
+      <input id="menu-toggle" type="checkbox" class="menu-checkbox" />
+      <label for="menu-toggle" class="hamburger" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <div class="nav-links responsive-menu">
+        <a href="index.html">Formulario</a>
+        <a href="interaccio.html">Interactividad</a>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Interactividad sólo con CSS</h1>
+
+    <!-- PESTAÑAS (tabs) con radios -->
+    <section class="tabs">
+      <input type="radio" id="tab1" name="tab" checked>
+      <input type="radio" id="tab2" name="tab">
+      <input type="radio" id="tab3" name="tab">
+
+      <div class="tab-buttons">
+        <label for="tab1" class="tab-btn">Tab 1</label>
+        <label for="tab2" class="tab-btn">Tab 2</label>
+        <label for="tab3" class="tab-btn">Tab 3</label>
+      </div>
+
+      <div class="tab-contents">
+        <div class="content content-1">Contenido de la pestaña 1: presentación.</div>
+        <div class="content content-2">Contenido de la pestaña 2: información adicional.</div>
+        <div class="content content-3">Contenido de la pestaña 3: recursos y enlaces.</div>
+      </div>
+    </section>
+
+    <!-- Flip-card controlada por checkbox -->
+    <section class="interactive-block">
+      <h2>Flip card (sin JS)</h2>
+      <input type="checkbox" id="flip" class="flip-checkbox">
+      <label for="flip" class="flip-area">
+        <div class="card">
+          <div class="card-face card-front">
+            <h3>Frente</h3>
+            <p>Haz click (o toca) para girar la tarjeta.</p>
+          </div>
+          <div class="card-face card-back">
+            <h3>Reverso</h3>
+            <p>Contenido alternativo mostrado con CSS :checked.</p>
+          </div>
+        </div>
+      </label>
+    </section>
+
+    <!-- Panel de opciones con radios (ejemplo extra) -->
+    <section class="options-panel">
+      <h2>Panel de opciones</h2>
+      <input type="radio" name="opt" id="opt1" checked>
+      <input type="radio" name="opt" id="opt2">
+      <input type="radio" name="opt" id="opt3">
+
+      <div class="opt-buttons">
+        <label for="opt1">Opción A</label>
+        <label for="opt2">Opción B</label>
+        <label for="opt3">Opción C</label>
+      </div>
+
+      <div class="opt-contents">
+        <div class="opt content-a">Bloque A: información para A.</div>
+        <div class="opt content-b">Bloque B: información para B.</div>
+        <div class="opt content-c">Bloque C: información para C.</div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <p>Interactividad con selectores CSS avanzados (incluye :has()).</p>
+  </footer>
+</body>
+</html>

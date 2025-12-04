@@ -1,0 +1,232 @@
+/* RESET y variables */
+:root{
+  --accent:#2b6cb0;
+  --accent-2:#285e61;
+  --muted:#64748b;
+  --bg:#f7fafc;
+  --card:#ffffff;
+  --danger:#e53e3e;
+  --success:#2f855a;
+  --radius:10px;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial;
+  background:linear-gradient(180deg,var(--bg),#fff);
+  color:#102a43;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* Layout principal con Flexbox */
+.container{
+  max-width:1000px;
+  margin:2rem auto;
+  padding:1rem;
+  display:flex;
+  flex-direction:column;
+  gap:1.25rem;
+}
+
+/* Navbar */
+.navbar{
+  background:var(--card);
+  border-bottom:1px solid #e6eef6;
+  position:sticky;
+  top:0;
+  z-index:50;
+}
+.container-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:1rem;
+  padding:0.85rem 1rem;
+  max-width:1000px;
+  margin:0 auto;
+}
+.brand{font-weight:700;color:var(--accent);text-decoration:none;}
+.nav-links a{margin-left:1rem;color:var(--muted);text-decoration:none}
+
+/* HAMBURGER (móvil) */
+.menu-checkbox{display:none}
+.hamburger{display:none; cursor:pointer; width:36px; height:24px; position:relative}
+.hamburger span{display:block;height:3px;background:#123; margin:5px 0;border-radius:2px;transition:0.3s}
+
+/* Responsive menu show/hide via checkbox */
+.responsive-menu{
+  transition:transform .35s ease,opacity .35s ease;
+}
+.menu-checkbox:checked ~ .responsive-menu{
+  transform:none;
+  opacity:1;
+}
+
+/* FORMULARIO */
+.formulario{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+  background:var(--card);
+  padding:1.25rem;
+  border-radius:var(--radius);
+  box-shadow:0 4px 12px rgba(16,42,67,0.06);
+}
+
+/* campos básicos */
+.field{display:flex;flex-direction:column;gap:.35rem}
+.field span{font-size:.95rem;color:var(--muted)}
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+select,
+textarea{
+  padding:.6rem .75rem;
+  border:1px solid #dbe7f3;
+  border-radius:8px;
+  outline:none;
+  transition:box-shadow .25s ease, border-color .25s ease, transform .15s ease;
+  background:linear-gradient(180deg,#fff,#fbfdff);
+}
+
+/* :focus con transición animada obligatoria */
+input:focus, select:focus, textarea:focus{
+  box-shadow:0 6px 18px rgba(43,108,176,0.12);
+  border-color:var(--accent);
+  transform:translateY(-2px) scale(1.001);
+}
+
+/* valid/invalid states: al menos 3 campos con visual */
+input:required:invalid, select:required:invalid{
+  border-color:var(--danger);
+  box-shadow:0 0 0 4px rgba(229,62,62,0.06);
+}
+input:required:valid, select:required:valid{
+  border-color:var(--success);
+  box-shadow:0 0 0 4px rgba(47,133,90,0.06);
+}
+
+/* placeholder sutil */
+input::placeholder, textarea::placeholder{color:#9aa9b8;font-size:.95rem}
+
+/* color & range personalizados */
+.color-field input[type="color"]{
+  width:56px;height:40px;padding:2px;border-radius:8px;border:none;cursor:pointer;
+}
+.range-field{display:flex;align-items:center;gap:.6rem}
+.range-field input[type="range"]{flex:1}
+.range-field .range-value{min-width:32px;text-align:center;color:var(--muted);font-weight:600}
+
+/* Fieldset legend */
+.fieldset{padding:.6rem;border:1px dashed #e6eef6;border-radius:8px}
+.fieldset legend{font-weight:600;color:var(--muted)}
+
+/* CHECKBOX y RADIO personalizados: ocultar el input y dibujar con pseudo */
+.checkbox, .radio{
+  display:flex;align-items:center;gap:.6rem;cursor:pointer;margin:.25rem 0;
+  user-select:none;
+}
+.checkbox input, .radio input{position:absolute;opacity:0;pointer-events:none}
+
+/* custom box for checkbox */
+.checkbox .custom-check{
+  width:20px;height:20px;border-radius:4px;border:2px solid #b8c9dc;display:inline-block;position:relative;
+  transition:all .18s ease;
+}
+.checkbox input:checked + .custom-check{
+  background:linear-gradient(90deg,var(--accent),var(--accent-2));
+  border-color:transparent;
+  transform:scale(.98);
+}
+.checkbox .custom-check::after{
+  content:"";position:absolute;left:4px;top:0;width:6px;height:12px;border:2px solid white;border-top:0;border-left:0;transform:rotate(40deg);opacity:0;
+}
+.checkbox input:checked + .custom-check::after{opacity:1}
+
+/* custom for radio */
+.radio .custom-radio{
+  width:18px;height:18px;border-radius:50%;border:2px solid #b8c9dc;display:inline-block;position:relative;
+  transition:all .18s ease;
+}
+.radio input:checked + .custom-radio{
+  background:#fff;
+  box-shadow:inset 0 0 0 4px var(--accent);
+}
+
+/* TEXTAREA */
+textarea{resize:vertical;min-height:80px}
+
+/* botones */
+.botones{display:flex;gap:.75rem;margin-top:.5rem}
+.btn{padding:.6rem .95rem;border-radius:10px;border:1px solid transparent;cursor:pointer;transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translateY(-3px);box-shadow:0 8px 20px rgba(16,42,67,.08)}
+.btn.primary{background:var(--accent);color:#fff}
+.btn.ghost{background:transparent;border-color:#dbe7f3;color:var(--muted)}
+
+/* Footer */
+.footer{max-width:1000px;margin:1rem auto;padding:1rem;text-align:center;color:var(--muted)}
+
+/* --- INTERACCIO (Pestañas y uso de :has()) --- */
+.tabs{background:var(--card);padding:1rem;border-radius:12px;box-shadow:0 6px 18px rgba(16,42,67,.04)}
+.tabs input[type="radio"]{display:none}
+
+/* botones de pestañas */
+.tab-buttons{display:flex;gap:.5rem;margin-bottom:.6rem}
+.tab-btn{
+  padding:.5rem .75rem;border-radius:8px;background:#f1f6fb;border:1px solid #e6eef6;cursor:pointer;transition:all .18s;
+}
+.tab-btn:hover{transform:translateY(-3px)}
+/* Contenidos: por defecto ocultos */
+.tab-contents .content{display:none;padding:.8rem;border-radius:8px;background:linear-gradient(180deg,#fff,#f7fbff);border:1px solid #eef5fb}
+
+/* Mostrar contenido según :has() (cumple requisito) */
+#pagina-interaccio:has(#tab1:checked) .content-1{display:block}
+#pagina-interaccio:has(#tab2:checked) .content-2{display:block}
+#pagina-interaccio:has(#tab3:checked) .content-3{display:block}
+
+/* FLIP CARD */
+.interactive-block{margin-top:1rem}
+.flip-checkbox{display:none}
+.flip-area{display:inline-block;cursor:pointer;perspective:1000px}
+.card{width:260px;height:160px;position:relative;transform-style:preserve-3d;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+/* estado por defecto */
+.flip-checkbox:checked + .flip-area .card{transform:rotateY(180deg)}
+.card-face{position:absolute;inset:0;border-radius:10px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:1rem;backface-visibility:hidden;box-shadow:0 8px 20px rgba(16,42,67,.06)}
+.card-front{background:linear-gradient(180deg,#fff,#f0f7ff);border:1px solid #e6eef6}
+.card-back{background:linear-gradient(180deg,#f8fff9,#ecffef);border:1px solid #e6f6ee;transform:rotateY(180deg)}
+
+/* PANEL DE OPCIONES (radio + contenidos con selectores de hermanos) */
+.options-panel{margin-top:1rem;background:var(--card);padding:1rem;border-radius:12px}
+.options-panel input[type="radio"]{display:none}
+.opt-buttons{display:flex;gap:.5rem;margin-bottom:.6rem}
+.opt-buttons label{padding:.45rem .6rem;border-radius:8px;background:#fbfeff;border:1px solid #e6eef6;cursor:pointer}
+#opt1:checked ~ .opt-contents .content-a,
+#opt2:checked ~ .opt-contents .content-b,
+#opt3:checked ~ .opt-contents .content-c{
+  display:block;
+}
+.opt-contents .opt{display:none;padding:.8rem;border-radius:8px;background:#fff}
+
+/* TRANSICIONES: mínimo 5 elementos con transition (hover, focus, checked...) ya aplicadas arriba */
+
+/* RESPONSIVE (móvil) */
+@media (max-width:700px){
+  .container{padding:.75rem}
+  .nav-links{display:none}
+  .hamburger{display:block}
+  .hamburger span{background:var(--muted)}
+  /* menú móvil: cuando checkbox está checked mostramos el menú */
+  .menu-checkbox:checked ~ .responsive-menu{
+    display:block;
+    position:absolute;left:1rem;right:1rem;top:64px;background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 12px 36px rgba(16,42,67,.12)
+  }
+
+  /* layout form: campos apilados (ya lo están) */
+}
+
+/* Extra: mejor visual range value actualización con CSS puro (no dynamic) -> muestra el valor del atributo value en HTML si se quiere */
