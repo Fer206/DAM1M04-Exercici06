@@ -1,16 +1,24 @@
 <!doctype html>
 <html lang="es">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Exercici006 · Formulari</title>
   <link rel="stylesheet" href="estils.css">
 </head>
+
 <body>
   <header class="navbar">
     <nav class="container-flex">
       <a class="brand" href="#">Exercici006</a>
-      <div class="nav-links">
+
+      <input id="menu-toggle" type="checkbox" class="menu-checkbox" />
+      <label for="menu-toggle" class="menu_pequeño" aria-hidden="true">
+        <span></span><span></span><span></span>
+      </label>
+
+      <div class="nav-links responsive-menu">
         <a href="index.html">Formulario</a>
         <a href="interaccio.html">Interactividad</a>
       </div>
@@ -20,68 +28,52 @@
   <main class="container">
     <h1>Formulario personalizado · Validación con HTML5 + CSS</h1>
 
-    <form class="formulario" novalidate>
-      <!-- Nombre completo con pattern + title -->
+    <form class="formulario">
+
       <label class="field">
         <span>Nombre completo *</span>
-        <input
-          type="text"
-          name="fullname"
-          required
-          pattern="^[A-Za-zÀ-ÿ\u00f1\u00d1\s]{3,40}$"
-          title="Introduce solo letras y espacios (3-40 caracteres)."
-          placeholder="Ej. María Pérez">
+        <input type="text" name="fullname" required pattern="^[A-Za-zÀ-ÿ\u00f1\u00d1\s]{3,40}$"
+          title="Introduce solo letras y espacios (3-40 caracteres)." placeholder="Ej. María Pérez">
       </label>
 
-      <!-- Email requerido -->
       <label class="field">
-        <span>Correo electrónico *</span>
+        <span>Correo electrónico</span>
         <input type="email" name="email" required placeholder="tu@ejemplo.com">
+        <span class="error">Introduce un correo electrónico válido.</span>
       </label>
 
-      <!-- Teléfono con pattern -->
       <label class="field">
         <span>Teléfono</span>
-        <input
-          type="tel"
-          name="phone"
-          pattern="^\+?\d{9,15}$"
-          title="Número internacional: solo dígitos, opcional prefijo +, 9-15 dígitos"
-          placeholder="+34123456789">
+        <input type="tel" name="phone" pattern="^\+?\d{9,15}$"
+          title="Número internacional: solo dígitos, opcional prefijo +, 9-15 dígitos" placeholder="+34123456789">
       </label>
 
-      <!-- Edad -->
       <label class="field">
         <span>Edad</span>
         <input type="number" name="edad" min="14" max="120" step="1" placeholder="25">
       </label>
 
-      <!-- Fecha de nacimiento -->
       <label class="field">
         <span>Fecha de nacimiento</span>
         <input type="date" name="nacimiento">
       </label>
 
-      <!-- Franja horaria (time) -->
       <label class="field">
         <span>Franja horaria preferida</span>
         <input type="time" name="franja">
       </label>
 
-      <!-- Color preferido -->
       <label class="field color-field">
         <span>Color preferido</span>
         <input type="color" name="color">
       </label>
 
-      <!-- Range -->
       <label class="field range-field">
         <span>Control deslizante (satisfacción)</span>
         <input type="range" name="satisfaccion" min="0" max="10" value="5">
         <output class="range-value">5</output>
       </label>
 
-      <!-- Aficiones (checkbox múltiples) -->
       <fieldset class="fieldset">
         <legend>Aficiones</legend>
         <label class="checkbox">
@@ -106,7 +98,6 @@
         </label>
       </fieldset>
 
-      <!-- Nivel de estudios (radio) -->
       <fieldset class="fieldset">
         <legend>Nivel de estudios</legend>
         <label class="radio">
@@ -126,7 +117,6 @@
         </label>
       </fieldset>
 
-      <!-- País select -->
       <label class="field">
         <span>País</span>
         <select name="pais" required>
@@ -139,13 +129,11 @@
         </select>
       </label>
 
-      <!-- Comentarios textarea -->
       <label class="field">
         <span>Comentarios</span>
         <textarea name="comentarios" rows="4" placeholder="Escribe aquí..."></textarea>
       </label>
 
-      <!-- Botones -->
       <div class="botones">
         <button type="submit" class="btn primary">Enviar</button>
         <button type="reset" class="btn ghost">Borrar</button>
@@ -157,4 +145,5 @@
     <p>Proyecto: DAM1M04 · Exercici006 — HTML + CSS</p>
   </footer>
 </body>
+
 </html>
