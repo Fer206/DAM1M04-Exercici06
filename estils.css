@@ -1,6 +1,6 @@
 /* RESET y variables */
 :root {
-  --accent: #2b6cb0;
+  --accent: #1398e4;
   --accent-2: #285e61;
   --muted: #64748b; 
   --bg: #f7fafc;
@@ -486,7 +486,7 @@ textarea {
   }
 
   .menu_pequeño span {
-    background: var(--muted)
+    background: var(--accent)
   }
 
   /* menú móvil: cuando checkbox está checked mostramos el menú */
