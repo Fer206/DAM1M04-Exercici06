@@ -1,99 +1,144 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
+
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Exercici006 · Interacció CSS</title>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  <link rel="stylesheet" href="estils.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 006 - Interacció</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="estils.css">
 </head>
+
 <body id="pagina-interaccio">
-  <header class="navbar sticky">
-    <nav class="container-flex">
-      <a class="brand" href="#">
-        <span class="material-icons-outlined">animation</span>Interacciones
-      </a>
+    <header class="navbar sticky">
+        <nav class="container-flex">
+            <a class="brand" href="#">MusicInterac</a>
+            <input id="menu-toggle" type="checkbox" class="menu-checkbox" />
+            <label for="menu-toggle" class="menu-icon">
+                <span></span><span></span><span></span>
+            </label>
+            <div class="nav-links">
+                <a href="index.html"><span class="material-icons-outlined">description</span> Formulari</a>
+                <a href="interaccio.html"><span class="material-icons-outlined">touch_app</span> Interacció</a>
+            </div>
+        </nav>
+    </header>
 
-  
-      <input id="menu-toggle" type="checkbox" class="menu-checkbox" />
-      <label for="menu-toggle" class="menu_pequeño" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </label>
+    <main class="container">
+        <h1>La musica</h1>
 
-      <div class="nav-links responsive-menu">
-        <a href="index.html">
-          <span class="material-icons-outlined">assignment</span> Formulario
-        </a>
-        <a href="interaccio.html">
-          <span class="material-icons-outlined">animation</span> Interactividad
-        </a>
-      </div>
-    </nav>
-  </header>
+        <!-- SECCION TABS -->
+        <section class="interactive-section">
+            <div class="tabs-container">
+                <input type="radio" name="tab" id="tab1" class="hidden-radio" checked>
+                <input type="radio" name="tab" id="tab2" class="hidden-radio">
+                <input type="radio" name="tab" id="tab3" class="hidden-radio">
 
-  <main class="container">
-    <h1>Interactividad sólo con CSS</h1>
+                <div class="tab-buttons">
+                    <label for="tab1" class="tab-btn">Informació</label>
+                    <label for="tab2" class="tab-btn">Recursos</label>
+                    <label for="tab3" class="tab-btn">Contacte</label>
+                </div>
 
-    <section class="tabs">
-      <input type="radio" id="tab1" name="tab" checked>
-      <input type="radio" id="tab2" name="tab">
-      <input type="radio" id="tab3" name="tab">
+                <div class="tab-contents">
+                    <div class="content content-1">
+                        <img src="assets/img/music.jpg" alt="Música i ones sonores" class="tab-img">
+                        <h3>Benvinguts</h3>
+                        <p>Aquí explicaremos un poco sobre la música, los compases, los instrumentos y 
+                            la lectura de partituras. Aprenderás las escalas basicas y como implementarlas en una cancion.</p>
+                    </div>
+                    <div class="content content-2">
+                        <img src="assets/img/recursos.jpg" alt="Recursos de desenvolupament web" class="tab-img">
+                        <h3>Recursos</h3>
+                        <p>Utilizaremos recursos basicos instrumentos, hojas de partituras asi como tambien entrenar
+                             el oido con musica.</p>
+                    </div>
+                    <div class="content content-3">
+                        <img src="assets/img/contacto.jpg" alt="Contacte i comunicació" class="tab-img">
+                        <h3>Contacte Directe</h3>
+                        <p>Puedes rellenar el formulario con los datos para poder recibir mas informacion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-      <div class="tab-buttons">
-        <label for="tab1" class="tab-btn">Tab 1</label>
-        <label for="tab2" class="tab-btn">Tab 2</label>
-        <label for="tab3" class="tab-btn">Tab 3</label>
-      </div>
+        <!-- SECCION FLIP CARD -->
+        <section class="interactive-section">
+            <h2>Conceptos Básicos de Música</h2>
+            <p>Antes de empezar a tocar, es importante conocer las reglas del 
+                juego. En esta tarjeta interactiva encontrarás un resumen 
+                rápido sobre cómo se organiza la música: desde los golpes del 
+                ritmo hasta cómo se clasifican los instrumentos que escuchas en tus 
+                canciones favoritas.</p>
+            <div class="flip-wrapper">
+                <input type="checkbox" id="flip-trigger" class="hidden-check">
+                <label for="flip-trigger" class="flip-card">
+                    <div class="card-inner">
+                        <div class="card-front">
+                            <h3><span class="material-icons-outlined">music_note</span> Teoría Musical</h3>
+                            <p>Haz clic para descubrir los conceptos clave.</p>
+                        </div>
+                        <div class="card-back">
+                            <h3><span class="material-icons-outlined">book</span>ABC de la música</h3>
+                            <p>La música usa <b>compases</b> para el ritmo, el 
+                                <b>pentagrama</b> para las notas y divide los <b>instrumentos</b> 
+                                en familias (cuerda, viento y percusión).</p>
+                        </div>
+                    </div>
+                </label>
+            </div>
+        </section>
 
-      <div class="tab-contents">
-        <div class="content content-1">Contenido de la pestaña 1: presentación.</div>
-        <div class="content content-2">Contenido de la pestaña 2: información adicional.</div>
-        <div class="content content-3">Contenido de la pestaña 3: recursos y enlaces.</div>
-      </div>
-    </section>
+        <!-- SECCION CAROUSEL -->
+        <section class="interactive-section">
+            <h2>Aspectos de la Música</h2>
+            <p>En la música existen varios aspectos fundamentales. Por ejemplo, la precisión 
+                rítmica es vital; para lograrla, se utiliza el metrónomo, que marca la duración 
+                exacta de cada pulso. Además, está la lectura técnica: las tablaturas facilitan la 
+                formación de acordes en la guitarra, mientras que las partituras permiten interpretar 
+                las notas y la estructura de una canción</p>
+            <div class="carousel">
+                <input type="radio" name="slide" id="slide1" class="hidden-radio" checked>
+                <input type="radio" name="slide" id="slide2" class="hidden-radio">
+                <input type="radio" name="slide" id="slide3" class="hidden-radio">
 
-    <section class="interactive-block">
-      <h2>Flip card (sin JS)</h2>
-      <input type="checkbox" id="flip" class="flip-checkbox">
-      <label for="flip" class="flip-area">
-        <div class="card">
-          <div class="card-face card-front">
-            <h3>Frente</h3>
-            <p>Haz click (o toca) para girar la tarjeta.</p>
-          </div>
-          <div class="card-face card-back">
-            <h3>Reverso</h3>
-            <p>Contenido alternativo mostrado con CSS :checked.</p>
-          </div>
-        </div>
-      </label>
-    </section>
+                <div class="carousel-track">
+                    <div class="carousel-slide slide-1">
+                        <img src="assets/img/metronomo.png" alt="Música">
+                        <p class="slide-caption">Metronomo</p>
+                    </div>
+                    <div class="carousel-slide slide-2">
+                        <img src="assets/img/acordes.jpg" alt="Recursos">
+                        <p class="slide-caption">Acordes</p>
+                    </div>
+                    <div class="carousel-slide slide-3">
+                        <img src="assets/img/Partitura.avif" alt="Contacte">
+                        <p class="slide-caption">Partituras</p>
+                    </div>
+                </div>
 
-    <section class="options-panel">
-      <h2>Panel de opciones</h2>
-      <input type="radio" name="opt" id="opt1" checked>
-      <input type="radio" name="opt" id="opt2">
-      <input type="radio" name="opt" id="opt3">
+                <div class="carousel-dots">
+                    <label for="slide1" class="dot"></label>
+                    <label for="slide2" class="dot"></label>
+                    <label for="slide3" class="dot"></label>
+                </div>
 
-      <div class="opt-buttons">
-        <label for="opt1">Opción A</label>
-        <label for="opt2">Opción B</label>
-        <label for="opt3">Opción C</label>
-      </div>
+                <div class="carousel-arrows">
+                    <label for="slide3" class="arrow-prev arrow-prev-1">&#10094;</label>
+                    <label for="slide2" class="arrow-next arrow-next-1">&#10095;</label>
 
-      <div class="opt-contents">
-        <div class="opt content-a">Bloque A: información para A.</div>
-        <div class="opt content-b">Bloque B: información para B.</div>
-        <div class="opt content-c">Bloque C: información para C.</div>
-      </div>
-    </section>
+                    <label for="slide1" class="arrow-prev arrow-prev-2">&#10094;</label>
+                    <label for="slide3" class="arrow-next arrow-next-2">&#10095;</label>
 
-  </main>
+                    <label for="slide2" class="arrow-prev arrow-prev-3">&#10094;</label>
+                    <label for="slide1" class="arrow-next arrow-next-3">&#10095;</label>
+                </div>
+            </div>
+        </section>
 
-  <footer class="footer">
-    <p>Interactividad con selectores CSS avanzados (incluye :has()).</p>
-  </footer>
+    </main>
+
 </body>
+
 </html>
