@@ -1,159 +1,171 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Exercici006 · Formulari</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercici 006 - Formulari</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
-  <link rel="stylesheet" href="estils.css">
+    <link rel="stylesheet" href="estils.css">
 </head>
 
-<body>
-  <header class="navbar">
-    <nav class="container-flex">
-      <a class="brand" href="#">
-        <span class="material-icons-outlined">assignment</span>Inscripcion
-      </a>
+<body id="pagina-formulari">
+    <header class="navbar sticky">
+        <nav class="container-flex">
+            <a class="brand" href="#">MusicForm</a>
+            <input id="menu-toggle" type="checkbox" class="menu-checkbox" />
+            <label for="menu-toggle" class="menu-icon">
+                <span></span><span></span><span></span>
+            </label>
+            <div class="nav-links">
+                <a href="index.html"><span class="material-icons-outlined">description</span> Formulario</a>
+                <a href="interaccio.html"><span class="material-icons-outlined">touch_app</span> Interaccion</a>
+            </div>
+        </nav>
+    </header>
 
-      <input id="menu-toggle" type="checkbox" class="menu-checkbox" />
-      <label for="menu-toggle" class="menu_pequeño" aria-hidden="true">
-        <span></span><span></span><span></span>
-      </label>
+    <main class="container">
+        <h1>Formulario de Registro</h1>
+        <form action="#" method="post" class="formulari">
 
-      <div class="nav-links responsive-menu">
-        <a href="index.html">
-          <span class="material-icons-outlined">assignment</span> Inscripcion
-        </a>
-        <a href="interaccio.html">
-          <span class="material-icons-outlined">animation</span> Interactividad
-        </a>
-      </div>
-    </nav>
-  </header>
+            <!-- Nom completo -->
+            <div class="camp">
+                <label class="fixedLabel" for="name">Nombre completo</label>
+                <input type="text" id="name" name="name" placeholder=" " required pattern="^[A-Za-zÀ-ÿ\s]{3,30}$"
+                    title="El nom ha de tenir entre 3 i 30 caràcters, només lletres.">
+                <p class="error">El nombre ha de tener entre 3 i 30 caracteres.</p>
+            </div>
 
-  <main class="container">
-    <h1>Pedido</h1>
+            <!-- Correo electronico -->
+            <div class="camp">
+                <label class="fixedLabel" for="email">Correo electrónico</label>
+                <input type="email" id="email" name="email" placeholder=" " required>
+                <p class="error">Introduce un correo electrónico válido.</p>
+            </div>
 
-    <form class="formulario">
+            <!-- Teléfono -->
+            <div class="camp">
+                <label class="fixedLabel" for="telefono">Teléfono</label>
+                <input type="tel" id="telefono" name="telefono" placeholder=" " required pattern="^[0-9]{9}$"
+                    title="El número de teléfono ha de tenir 9 dígits.">
+                <p class="error">Introduce un número de teléfono válido (9 dígitos).</p>
+            </div>
 
-      <label class="field">
-        <span>Nombre completo*</span>
-        <input type="text" name="fullname" required pattern="^[A-Za-zÀ-ÿ\u00f1\u00d1\s]{3,40}$"
-          title="Introduce solo letras y espacios (3-40 caracteres)." placeholder="Ej. María Pérez">
-      </label>
+            <!-- Fila: Edad + Fecha de nacimiento -->
+            <div class="form-row">
+                <div class="camp">
+                    <label class="fixedLabel" for="edad">Edad</label>
+                    <input type="number" id="edad" name="edad" placeholder=" " required min="6" max="120" step="1">
+                    <p class="error">Introduce una edad entre 6 i 120 años.</p>
+                </div>
+                <div class="camp">
+                    <label class="fixedLabel" for="naixement">Fecha de nacimiento</label>
+                    <input type="date" id="naixement" name="naixement">
+                </div>
+            </div>
 
-      <label class="field">
-        <span>Correo electrónico</span>
-        <input type="email" name="email" required placeholder="tu@ejemplo.com">
-        <span class="error">Introduce un correo electrónico válido.</span>
-      </label>
+            <!-- Fila: Hora + Color -->
+            <div class="form-row">
+                <div class="camp">
+                    <label class="fixedLabel" for="hora">Franja horaria</label>
+                    <input type="time" id="hora" name="hora" placeholder=" ">
+                </div>
+                <div class="camp">
+                    <label class="fixedLabel" for="color">Color preferido<br /></label>
+                    <input type="color" id="color" name="color" value="#1976d2">
+                </div>
+            </div>
 
-      <label class="field">
-        <span>Teléfono</span>
-        <input type="tel" name="phone" pattern="^\+?\d{9,15}$"
-          title="Número internacional: solo dígitos, opcional prefijo +, 9-15 dígitos" placeholder="+34123456789">
-      </label>
+            <!-- Range -->
+            <div class="camp">
+                <label class="fixedLabel" for="volum">Nivel de interés</label>
+                <input type="range" id="volum" name="volum" min="0" max="100" value="50">
+            </div>
 
-      <label class="field">
-        <span>Edad</span>
-        <input type="number" name="edad" min="14" max="120" step="1" placeholder="25">
-      </label>
+            <!-- Aficions (checkbox múltiple) -->
+            <div class="camp">
+                <label class="fixedLabel">Tipo de instrumento</label>
+                <div class="selection-group">
+                    <label class="custom-check">
+                        <input type="checkbox" name="aficions" value="cuerdas">
+                        <span class="checkmark"></span>
+                        <span class="check-text">Cuerdas</span>
+                    </label>
+                    <label class="custom-check">
+                        <input type="checkbox" name="aficions" value="percusion">
+                        <span class="checkmark"></span>
+                        <span class="check-text">Percusión</span>
+                    </label>
+                    <label class="custom-check">
+                        <input type="checkbox" name="aficions" value="viento">
+                        <span class="checkmark"></span>
+                        <span class="check-text">Viento</span>
+                    </label>
+                    <label class="custom-check">
+                        <input type="checkbox" name="aficions" value="electronico">
+                        <span class="checkmark"></span>
+                        <span class="check-text">Electrónico</span>
+                    </label>
+                </div>
+            </div>
 
-      <label class="field">
-        <span>Fecha de nacimiento</span>
-        <input type="date" name="nacimiento">
-      </label>
+            <!-- Nivell d'estudis (radio) -->
+            <div class="camp">
+                <label class="fixedLabel">Nivell musical</label>
+                <div class="selection-group">
+                    <label class="custom-radio">
+                        <input type="radio" name="estudios" value="nulo">
+                        <span class="radiomark"></span>
+                        <span class="radio-text">Nulo</span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="estudios" value="bajo">
+                        <span class="radiomark"></span>
+                        <span class="radio-text">Bajo</span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="estudios" value="medio">
+                        <span class="radiomark"></span>
+                        <span class="radio-text">Medio</span>
+                    </label>
+                    <label class="custom-radio">
+                        <input type="radio" name="estudios" value="avanzado">
+                        <span class="radiomark"></span>
+                        <span class="radio-text">Avanzado</span>
+                    </label>
+                </div>
+            </div>
 
-      <label class="field">
-        <span>Franja horaria preferida</span>
-        <input type="time" name="franja">
-      </label>
+            <!-- País (select) -->
+            <div class="camp">
+                <label class="fixedLabel" for="pais">País</label>
+                <select id="pais" name="pais" required>
+                    <option value="">Selecciona un país...</option>
+                    <option value="es">España</option>
+                    <option value="fr">Francia</option>
+                    <option value="it">Italia</option>
+                    <option value="pt">Portugal</option>
+                    <option value="de">Alemania</option>
+                </select>
+            </div>
 
-      <label class="field color-field">
-        <span>Color preferido</span>
-        <input type="color" name="color">
-      </label>
+            <!-- Comentaris (textarea) -->
+            <div class="camp">
+                <label class="fixedLabel" for="comentaris">Comentarios</label>
+                <textarea id="comentaris" name="comentarios" rows="4" maxlength="300"
+                    placeholder="Escriba aquí sus comentarios..."></textarea>
+            </div>
 
-      <label class="field range-field">
-        <span>Control deslizante (satisfacción)</span>
-        <input type="range" name="satisfaccion" min="0" max="10" value="5">
-        <output class="range-value">5</output>
-      </label>
+            <!-- Botons -->
+            <div class="btn-group">
+                <button type="submit" class="btn btn-submit">Enviar datos</button>
+                <button type="reset" class="btn btn-reset">Borrar todo</button>
+            </div>
 
-      <fieldset class="fieldset">
-        <legend>Aficiones</legend>
-        <label class="checkbox">
-          <input type="checkbox" name="aficion" value="leer">
-          <span class="custom-check"></span>
-          Leer
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="aficion" value="deporte">
-          <span class="custom-check"></span>
-          Deporte
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="aficion" value="cine">
-          <span class="custom-check"></span>
-          Cine
-        </label>
-        <label class="checkbox">
-          <input type="checkbox" name="aficion" value="programar">
-          <span class="custom-check"></span>
-          Programar
-        </label>
-      </fieldset>
+        </form>
+    </main>
 
-      <fieldset class="fieldset">
-        <legend>Nivel de estudios</legend>
-        <label class="radio">
-          <input type="radio" name="estudios" value="eso">
-          <span class="custom-radio"></span>
-          ESO
-        </label>
-        <label class="radio">
-          <input type="radio" name="estudios" value="bachillerato">
-          <span class="custom-radio"></span>
-          Bachillerato
-        </label>
-        <label class="radio">
-          <input type="radio" name="estudios" value="grado">
-          <span class="custom-radio"></span>
-          Grado/Formación
-        </label>
-      </fieldset>
-
-      <label class="field">
-        <span>País</span>
-        <select name="pais" required>
-          <option value="">— Selecciona —</option>
-          <option>España</option>
-          <option>Portugal</option>
-          <option>Francia</option>
-          <option>Alemania</option>
-          <option>Otro</option>
-        </select>
-      </label>
-
-      <label class="field">
-        <span>Comentarios</span>
-        <textarea name="comentarios" rows="4" placeholder="Escribe aquí..."></textarea>
-      </label>
-
-      <div class="botones">
-        <button type="submit" class="btn primary">Enviar</button>
-        <button type="reset" class="btn ghost">Borrar</button>
-      </div>
-    </form>
-  </main>
-
-  <footer class="footer">
-    <p>Proyecto: DAM1M04 · Exercici006 — HTML + CSS</p>
-  </footer>
 </body>
 
 </html>
